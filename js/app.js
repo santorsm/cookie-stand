@@ -11,10 +11,10 @@ var parentElement = document.getElementById('seattle');
 var seattle = {
   location: 'seattle',
   customersPerhr: [],
-  storeHours: ['6am:','7am','8am','9am','10am','11am','12pm:','1pm:','2pm:','3pm:','4pm:','5pm:','6pm:','7pm:','Total:']
+  storeHours: ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:', 'Total:'],
   min: 23,
   max: 65,
-  seattleAvg: 6.3,
+  avgCookiespurchased: 6.3,
   customerCount: function () {
     console.log(this.location);
     this.customersPerhr = randomCustomers(this.min, this.max) + ' customers per hour.';
@@ -27,15 +27,14 @@ console.log(seattle);
 
 
 
-//Uses a method of that object to generate a random number of customers per hour
-function randomCustomers (min, max) {
-  return Math.floor(Math.random() * (max - min +1) + min);
+for (var i = 0; i < seattle.storeHours.length; i++) {
+  var li = document.createElement('li');
+  li.textContent = seattle.storeHours[i];
+  parentElement.appendChild(li);
 }
 
 
-
-// create a new element, or elements, that represent the seattle location sales by hour
-//give it content
-//append to DOM
-// var article = document.createElement('article');
-// parentElement.appendChild(article);
+//Uses a method of that object to generate a random number of customers per hour
+function randomCustomers(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
