@@ -12,6 +12,11 @@
 - [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 
 - [Google Fonts](https://developers.google.com/fonts/docs/getting_started)
+- [Creating Thead](https://www.valentinog.com/blog/html-table/)
+
+### Pull Requests
+
+[PR 3](https://github.com/santorsm/cookie-stand/pull/3)
 
 ## Reflections and Comments
 
