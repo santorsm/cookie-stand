@@ -16,8 +16,13 @@
 
 ### Pull Requests
 
-[PR 3](https://github.com/santorsm/cookie-stand/pull/3)
+[PR 3](https://github.com/santorsm/cookie-stand/pull/3)  
+[PR 5](https://github.com/santorsm/cookie-stand/pull/5)
 
 ## Reflections and Comments
 
 I watched the code review on Saturday which helped me to better understanding of the concepts and make the corrections to this lab
+
+20 Oct 20
+
+- Watched code review included the `renderAllStores` function that was presented during the class
