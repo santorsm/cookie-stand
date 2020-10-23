@@ -1,6 +1,129 @@
+/* entire document */
+
 body{
-  font-family: "Lato";
+  font-family: "Quattrocento";
   font-size: 22px;
+
+}
+
+/* header */
+header{
+  background: color 1d 3557;;
+  height: 120px;  
+}
+
+header h1{
+  font-family:"Quattrocento";
+  font-weight: bold;
+  font-size: 100px;
+  margin-left: 550px;
+
+}
+
+header nav {
+  margin:auto;
+  width: 960px;
+}
+
+header img{
+  margin-left: 250px ;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 150px;
+}
+
+header ul {
+  float: left;
+}
+
+header li {
+  display: inline;
+  line-height: 50px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 60px;
+  font-size: 30px;
+  color: 343434
+}
+
+header li:first-child{
+  margin-left: 100px;
+}
+
+nav a {
+  text-decoration: none;
+  color:rgb(52, 52, 52)
+}
+
+/* main */
+
+
+main {
+  margin: auto;
+  width: 960px;
+  background-color:#FFFAF0;
+}
+
+img{
+  margin-top: 30px;
+}
+
+main li:first-child{
+  margin-left: 0px;
+}
+
+main li  {
+  margin-left: 30px;
+  float: left;
+}
+
+main article {
+float: right;
+width: 50%;
+margin-top: 30px;
+}
+
+main h2 {
+  font-size: 50px;
+  margin-left: 30px;
+  font-weight: bold;
+  font-family: "Quattrocento";
+  color:rgb(74, 78, 105);
+}
+
+main p {
+  height: 300px;
+  margin-left: 30px;
+  margin-top: 5px;
+  overflow: auto;
+  font-family: "Quattrocento";
+  color: rgb(154, 140, 152);
+}
+
+main div {
+  background-color: #111;
+  color: #eee;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-left: 30px;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main div:hover {
+background-color: rgba(17,17,17,.5);
+transition: 350ms;
+}
+
+/* footer */
+
+footer {
+  background-color: #444;
+  height: 125px;
+  margin-top: 30px;
 }
 
 h3{
@@ -14,6 +137,8 @@ li {
 }
 
 table {
+  font-family: "Lato";
+  font-size: 22px;
   border-collapse: collapse;
   width: 100%;
 }
