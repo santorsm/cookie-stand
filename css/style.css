@@ -1,9 +1,9 @@
 /* entire document */
 
+
 body{
   font-family: "Quattrocento";
   font-size: 22px;
-
 }
 
 /* header */
@@ -16,7 +16,7 @@ header h1{
   font-family:"Quattrocento";
   font-weight: bold;
   font-size: 100px;
-  margin-left: 550px;
+  margin-left: 330px;
 
 }
 
@@ -25,12 +25,17 @@ header nav {
   width: 960px;
 }
 
-header img{
-  margin-left: 250px ;
-  margin-top: 30px;
-  margin-bottom: 20px;
+header .one-fish {
+  margin: 30px 65px 20px 30px;
   padding: 10px;
-  height: 150px;
+  height: 100px;
+}
+
+header .two-fish {
+  margin: 30px 0px 20px 210px;
+  padding: 10px;
+  height: 95px;
+  width: 280px;
 }
 
 header ul {
@@ -58,24 +63,60 @@ nav a {
 
 /* main */
 
-
 main {
   margin: auto;
+  margin-bottom: 10px;
   width: 960px;
+  height: 1400px;
   background-color:#FFFAF0;
+  padding-bottom: 40px;
 }
 
-img{
-  margin-top: 30px;
+.family-picture {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+main li{
+  list-style-type:none;
+  margin-left: 10px;
+  float: left;
 }
 
 main li:first-child{
-  margin-left: 0px;
+  margin-left: 35px;
 }
 
-main li  {
-  margin-left: 30px;
+.picture-1 {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 285px;
   float: left;
+  margin-left: 2%;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.picture-2 {
+  margin-top: 50px;
+  height: 175px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.picture-3 {
+  margin-top: 20px;
+  height: 300px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+#t-shirt {
+  margin-left: 140px;
+}
+
+.picture-4 {
+  margin-top: 20px;
+  margin-left: 140px;
+  height: 300px;
+  box-shadow: 5px 5px 5px grey;
 }
 
 main article {
@@ -93,7 +134,7 @@ main h2 {
 }
 
 main p {
-  height: 300px;
+  height: 200px;
   margin-left: 30px;
   margin-top: 5px;
   overflow: auto;
@@ -105,8 +146,8 @@ main div {
   background-color: #111;
   color: #eee;
   font-size: 20px;
-  margin-top: 5px;
-  margin-left: 30px;
+  margin-top: 20px;
+  margin-left: 80px;
   padding: 10px 30px;
   display: inline-block;
   border-radius: 5px;
@@ -122,9 +163,48 @@ transition: 350ms;
 
 footer {
   background-color: #444;
-  height: 125px;
+  height: 100px;
   margin-top: 30px;
+  padding-top: 1%;
+  padding-bottom: 3%;
+  margin:auto;
+  width: 960px;
+  }
+
+.footer-info h2{
+  color: rgb(186, 166, 109);
+  font-size: 1.5vw;
+  font-weight: 700;
+  }
+
+.footer-info p{
+  color: lightgray;
+  font-size: 1.1vw;
+  font-weight: 500;
+  }
+  
+/* Create three equal columns that floats next to each other */
+.column-1 {
+  float: left;
+  margin-left: 30px;
+  padding: 10px;
 }
+.column-2 {
+  float: left;
+  margin-left: 140px;
+  padding: 10px;
+}
+.column-3 {
+  float: right;
+  margin-right: 30px;
+  padding: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color:lightblue;
+  }
+  
 
 h3{
   text-align: left;
