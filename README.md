@@ -26,4 +26,6 @@ I watched the code review on Saturday which helped me to better understand the c
 
 - Watched code review included the `renderAllStores` function that was presented during the class
 
-- Ryan helped me to amend this lab updating my loop and get set up for the next Salmon cookies activities
+26 Oct 20
+
+- Met with Ryan for some extra instruction. He helped me to amend this lab updating my loop and get set up for the next Salmon cookies activities
