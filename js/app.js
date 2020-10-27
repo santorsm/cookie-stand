@@ -3,14 +3,14 @@
 //all stores have same hours
 //global variable for store hours
 var storeHoursArray = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
-
+var tfoot = document.createElement('tfoot');
 
 
 var allStores = [];
 //for the header
 var storeTable = document.getElementById('store-table');
-
-
+var hourlyTotals = [];
+var grandTotal = 0;
 
 //stand alone function to create header row using header cell
 function renderTableHead() {
@@ -35,6 +35,32 @@ function renderTableHead() {
   tr.appendChild(th);
 
   storeTable.appendChild(tr);
+}
+
+function renderTableFoot() {
+  hourlyTotals = [];
+  grandTotal = 0;
+  calcTotals();
+  //create header row and header elements
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'Totals';
+  tr.appendChild(th);
+  for (var i = 0; i < storeHoursArray.length; i++) {
+    th = document.createElement('th');
+    th.textContent = hourlyTotals[i];
+    // th.appendChild(hour);
+    tr.appendChild(th);
+  }
+  // Daily Location Total column cookies sold
+  // create th
+  th = document.createElement('th');
+  //give it content
+  th.textContent = grandTotal;
+  //append to DOM
+  tr.appendChild(th);
+  tfoot.appendChild(tr);
+  storeTable.appendChild(tfoot);
 }
 
 
@@ -96,76 +122,19 @@ Store.prototype.render = function () {
   storeTable.appendChild(tr);
 };
 
-function renderColumnTotal() {
-  //create header row and header elements
-  var tr = document.createElement('tr');
-  var th = document.createElement('th');
-  //give it content
-  var columnTotal = document.createTextNode('Total');
-  //name Total row
-  th.appendChild(columnTotal);
-  //append to row
-  tr.appendChild(th);
-  tr.setAttribute('id', 'row-total');
-  storeTable.appendChild(tr);
+function calcTotals(){
 
-}
+  for (var i = 0; i < storeHoursArray.length; i++) {
+    var sum = 0;
 
-// var table = document.getElementById('store-table');
-// var ths = table.getElementsByTagName('th');
-// var tds = table.getElementsByTagName('td');
-// // console.log(tdArray);
-// for (var i = 1; i < ths.length; i++) {
-//   //th for column total
-//   var tr = document.createElement('tr');
-//   var th = document.createElement('th');
-//   var sum = 0;
-//   for (var j = 1; j < ths.length[i]; j++) {
-//     sum += tds[j][i];
-//     th = document.createElement(sum);
-//     console.log(tds[j][i]);
-//   }
-//   th.appendChild(sum);
-//   tr.appendChild(th);
-//   storeTable.appendChild(tr);
-// }
+    for (var j = 0; j < allStores.length; j++) {
+      sum += allStores[j].hourlyCookieSalesArray[i];
+    }
+    hourlyTotals.push(sum);
 
-
-
-for (var i = 0; i < storeHoursArray.length; i++) {
-  //th for column total
-  console.log(storeHoursArray[i]);
-  // th = document.createElement('th');
-  var sum = 0;
-  for (var j = 1; j < storeHoursArray.length; j++) {
-    sum += storeHoursArray[j][i];
-    console.log(sum);
+    grandTotal += sum;
   }
 }
-
-// // Space to calculate the total of Daily location total
-// // create th
-// th = document.createElement('th');
-// //give it content
-// var total = document.createTextNode('Daily Location Total');
-// //append to DOM
-// th.appendChild(total);
-// tr.appendChild(th);
-
-
-// function renderAllStores() {
-//   for (var i = 0; i < renderAllStores.length; i++) {
-//     allStores[i].render;
-//   }
-
-
-
-
-
-//footer row created in own stand alone function
-//use header row for both header & footer
-
-
 
 var seattle = new Store('seattle', 16, 65, 6.3);
 // console.log(seattle.countCustomers());
@@ -186,6 +155,5 @@ dubai.render();
 lima.render();
 paris.render();
 
-renderColumnTotal();
 
-// renderAllStores();
+renderTableFoot();

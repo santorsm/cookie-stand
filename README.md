@@ -12,7 +12,6 @@
 - [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 
 - [Google Fonts](https://developers.google.com/fonts/docs/getting_started)
-- ~~[Creating Thead](https://www.valentinog.com/blog/html-table/)~~ removed
 
 ### Pull Requests
 
@@ -21,8 +20,10 @@
 
 ## Reflections and Comments
 
-I watched the code review on Saturday which helped me to better understanding of the concepts and make the corrections to this lab
+I watched the code review on Saturday which helped me to better understand the concepts and make corrections to this lab
 
 20 Oct 20
 
 - Watched code review included the `renderAllStores` function that was presented during the class
+
+- Ryan helped me to amend this lab updating my loop and get set up for the next Salmon cookies activities
