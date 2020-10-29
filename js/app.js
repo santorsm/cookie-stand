@@ -4,10 +4,9 @@
 //global variable for store hours
 var storeHoursArray = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var tfoot = document.createElement('tfoot');
-
+var salmonCookieForm = document.getElementById('salmon-cookie-form');
 
 var allStores = [];
-//for the header
 var storeTable = document.getElementById('store-table');
 var hourlyTotals = [];
 var grandTotal = 0;
@@ -38,6 +37,7 @@ function renderTableHead() {
 }
 
 function renderTableFoot() {
+  //clears numbers from footer & grand total
   hourlyTotals = [];
   grandTotal = 0;
   calcTotals();
@@ -62,9 +62,6 @@ function renderTableFoot() {
   tfoot.appendChild(tr);
   storeTable.appendChild(tfoot);
 }
-
-
-//replace lists with a data table
 
 //store location constructor - contains unique; stand alone functions
 function Store(location, minCustomers, maxCustomers, avgCookiespurchased) {
@@ -136,6 +133,19 @@ function calcTotals(){
   }
 }
 
+function handleSubmit(event){
+  event.preventDefault();
+
+  var nameofNew = event.target.nameofNew.value;
+  console.log(nameofNew);
+  var minimum = parseInt(event.target.minimum.value);
+  var maximum = parseInt(event.target.maximum.value);
+  var average = parseInt(event.target.average.value);
+
+  var newStoreName = new Store(nameofNew, minimum, maximum, average);
+  newStoreName.render();
+}
+
 var seattle = new Store('seattle', 16, 65, 6.3);
 // console.log(seattle.countCustomers());
 var tokyo = new Store('tokyo', 3, 24, 1.2);
@@ -157,3 +167,5 @@ paris.render();
 
 
 renderTableFoot();
+
+salmonCookieForm.addEventListener('submit', handleSubmit(event));
