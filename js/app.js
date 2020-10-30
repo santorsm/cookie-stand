@@ -20,7 +20,6 @@ function Store(location, minCustomers, maxCustomers, avgCookiespurchased) {
   this.avgCookiespurchased = avgCookiespurchased;
   this.hourlyCookieSalesArray = [];
   allStores.push(this);
-  this.render();
 }
 
 Store.prototype.countCustomers = function () {
@@ -97,7 +96,6 @@ function renderTableHead() {
   for (var i = 0; i < storeHoursArray.length; i++) {
     th = document.createElement('th');
     th.textContent = (storeHoursArray[i]);
-    // th.appendChild(hour);
     tr.appendChild(th);
   }
   // Daily Location Total column cookies sold
@@ -114,8 +112,8 @@ function renderTableHead() {
 
 function renderTableFoot() {
   //clears numbers from footer & grand total
-  // hourlyTotals = [];
-  // grandTotal = 0;
+  hourlyTotals = [];
+  grandTotal = 0;
   calcTotals();
   //create header row and header elements
   var tr = document.createElement('tr');
@@ -125,7 +123,6 @@ function renderTableFoot() {
   for (var i = 0; i < storeHoursArray.length; i++) {
     th = document.createElement('th');
     th.textContent = hourlyTotals[i];
-    // th.appendChild(hour);
     tr.appendChild(th);
   }
   // Daily Location Total column cookies sold
@@ -166,15 +163,8 @@ new Store('lima', 2, 16, 4.6);
 // console.log(lima.countCustomers());
 
 
-// seattle.render();
-// tokyo.render();
-// dubai.render();
-// lima.render();
-// paris.render();
-
 function allStoresRender (){
-  storeTable.innerHTML = '';
-  tfoot.innerHTML = '';
+
 
   renderTableHead();
 
