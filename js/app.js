@@ -11,58 +11,6 @@ var storeTable = document.getElementById('store-table');
 var hourlyTotals = [];
 var grandTotal = 0;
 
-//stand alone function to create header row using header cell
-function renderTableHead() {
-  //create header row and header elements
-  var tr = document.createElement('tr');
-  var th = document.createElement('th');
-  //create blank space over store names
-  tr.appendChild(th);
-  for (var i = 0; i < storeHoursArray.length; i++) {
-    th = document.createElement('th');
-    th.textContent = (storeHoursArray[i]);
-    // th.appendChild(hour);
-    tr.appendChild(th);
-  }
-  // Daily Location Total column cookies sold
-  // create th
-  th = document.createElement('th');
-  //give it content
-  var total = document.createTextNode('Daily Location Total');
-  //append to DOM
-  th.appendChild(total);
-  tr.appendChild(th);
-
-  storeTable.appendChild(tr);
-}
-
-function renderTableFoot() {
-  //clears numbers from footer & grand total
-  hourlyTotals = [];
-  grandTotal = 0;
-  calcTotals();
-  //create header row and header elements
-  var tr = document.createElement('tr');
-  var th = document.createElement('th');
-  th.textContent = 'Totals';
-  tr.appendChild(th);
-  for (var i = 0; i < storeHoursArray.length; i++) {
-    th = document.createElement('th');
-    th.textContent = hourlyTotals[i];
-    // th.appendChild(hour);
-    tr.appendChild(th);
-  }
-  // Daily Location Total column cookies sold
-  // create th
-  th = document.createElement('th');
-  //give it content
-  th.textContent = grandTotal;
-  //append to DOM
-  tr.appendChild(th);
-  tfoot.appendChild(tr);
-  storeTable.appendChild(tfoot);
-}
-
 //store location constructor - contains unique; stand alone functions
 function Store(location, minCustomers, maxCustomers, avgCookiespurchased) {
   this.location = location;
@@ -72,11 +20,15 @@ function Store(location, minCustomers, maxCustomers, avgCookiespurchased) {
   this.avgCookiespurchased = avgCookiespurchased;
   this.hourlyCookieSalesArray = [];
   allStores.push(this);
-  this.countCustomers = function () {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
-  };
+  this.render();
 }
+
+Store.prototype.countCustomers = function () {
+  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+};
+
 Store.prototype.hourlyCookiesSold = function () {
+  this.countCustomers();
   for (var i = 0; i < storeHoursArray.length; i++) {
     //calc & assign # of cookies purchased each hour
     var cookiesSoldPerHour = Math.ceil((this.avgCookiespurchased * this.countCustomers()));
@@ -130,42 +82,110 @@ function calcTotals(){
     hourlyTotals.push(sum);
 
     grandTotal += sum;
+    console.log(allStores.length);
   }
+  console.log(allStores.length);
+}
+
+//stand alone function to create header row using header cell
+function renderTableHead() {
+  //create header row and header elements
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  //create blank space over store names
+  tr.appendChild(th);
+  for (var i = 0; i < storeHoursArray.length; i++) {
+    th = document.createElement('th');
+    th.textContent = (storeHoursArray[i]);
+    // th.appendChild(hour);
+    tr.appendChild(th);
+  }
+  // Daily Location Total column cookies sold
+  // create th
+  th = document.createElement('th');
+  //give it content
+  var total = document.createTextNode('Daily Location Total');
+  //append to DOM
+  th.appendChild(total);
+  tr.appendChild(th);
+
+  storeTable.appendChild(tr);
+}
+
+function renderTableFoot() {
+  //clears numbers from footer & grand total
+  // hourlyTotals = [];
+  // grandTotal = 0;
+  calcTotals();
+  //create header row and header elements
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'Totals';
+  tr.appendChild(th);
+  for (var i = 0; i < storeHoursArray.length; i++) {
+    th = document.createElement('th');
+    th.textContent = hourlyTotals[i];
+    // th.appendChild(hour);
+    tr.appendChild(th);
+  }
+  // Daily Location Total column cookies sold
+  // create th
+  th = document.createElement('th');
+  //give it content
+  th.textContent = grandTotal;
+  //append to DOM
+  tr.appendChild(th);
+  tfoot.appendChild(tr);
+  storeTable.appendChild(tfoot);
 }
 
 function handleSubmit(event){
   event.preventDefault();
 
-  var nameofNew = event.target.nameofNew.value;
-  console.log(nameofNew);
+  var newStore = event.target.newstore.value;
+  console.log(newStore);
   var minimum = parseInt(event.target.minimum.value);
   var maximum = parseInt(event.target.maximum.value);
   var average = parseInt(event.target.average.value);
 
-  var newStoreName = new Store(nameofNew, minimum, maximum, average);
+  var newStoreName = new Store(newStore, minimum, maximum, average);
   newStoreName.render();
+  tfoot.innerHTML = '';
+  renderTableFoot();
 }
 
-var seattle = new Store('seattle', 16, 65, 6.3);
+new Store('seattle', 16, 65, 6.3);
 // console.log(seattle.countCustomers());
-var tokyo = new Store('tokyo', 3, 24, 1.2);
+new Store('tokyo', 3, 24, 1.2);
 // console.log(tokyo.countCustomers());
-var dubai = new Store('dubai', 11, 38, 3.7);
+new Store('dubai', 11, 38, 3.7);
 // console.log(dubai.countCustomers());
-var paris = new Store('paris', 20, 38, 2.3);
+new Store('paris', 20, 38, 2.3);
 // console.log(paris.countCustomers());
-var lima = new Store('lima', 2, 16, 4.6);
+new Store('lima', 2, 16, 4.6);
 // console.log(lima.countCustomers());
 
-renderTableHead();
 
-seattle.render();
-tokyo.render();
-dubai.render();
-lima.render();
-paris.render();
+// seattle.render();
+// tokyo.render();
+// dubai.render();
+// lima.render();
+// paris.render();
+
+function allStoresRender (){
+  storeTable.innerHTML = '';
+  tfoot.innerHTML = '';
+
+  renderTableHead();
+
+  for (var i = 0; i < allStores.length; i++){
+    allStores[i].render();
+  }
+
+  renderTableFoot();
+}
 
 
-renderTableFoot();
+allStoresRender();
 
-salmonCookieForm.addEventListener('submit', handleSubmit(event));
+salmonCookieForm.addEventListener('submit', handleSubmit);
