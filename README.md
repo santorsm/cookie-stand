@@ -17,6 +17,7 @@
 
 [PR 3](https://github.com/santorsm/cookie-stand/pull/3)  
 [PR 5](https://github.com/santorsm/cookie-stand/pull/5)
+[PR 8](https://github.com/santorsm/cookie-stand/pull/8)
 
 ## Reflections and Comments
 
@@ -29,3 +30,7 @@ I watched the code review on Saturday which helped me to better understand the c
 26 Oct 20
 
 - Met with Ryan for some extra instruction. He helped me to amend this lab updating my loop and get set up for the next Salmon cookies activities
+
+28 Oct 20
+
+- Met with Bri for extra instruction. As no row was being added to my table. She pointed out the error in my HTML to correct the form and add the new store. We were unable to get the totals line to update
