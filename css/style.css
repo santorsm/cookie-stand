@@ -210,10 +210,16 @@ footer a {
 /* sales */
 
 /* header */
+
 #sales-header {
   background-color: #f2f2f2;
   height: 100px; 
   }
+
+legend {
+  margin: auto;
+}
+
 #sales-h1{
   font-size: 70px;
   padding-top: 20px;
@@ -239,10 +245,15 @@ table {
   font-family: "Lato";
   font-size: 16px;
   border-collapse: collapse;
+  border: 1px solid black;
   width: 100%;
+  margin: auto;
+  padding-top: 30px;
   }
 th {
   font-weight: 700;
+  border: 1px solid black;
+  padding: 5px;
   }
 td, th {
   border: 1px solid #cccccc;
@@ -256,4 +267,13 @@ tr {
 tr:nth-child(even) {
   background-color: #f2f2f2;
   }
+
+#button {
+  position:absolute;
+  transition: .5s ease;
+  top: 32%;  
+  left: 40%;
+  padding:10px;
+
+}
   
