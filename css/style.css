@@ -130,7 +130,7 @@ main h2 {
   font-size: 50px;
   margin-left: 30px;
   font-weight: bold;
-  font-family: "Quattrocento";
+  font-family: 'Lato', sans-serif;
   color:rgb(74, 78, 105);
 }
 
@@ -139,7 +139,7 @@ main p {
   margin-left: 30px;
   margin-top: 5px;
   overflow: auto;
-  font-family: "Quattrocento";
+  font-family:'Lato', sans-serif;
   color: rgb(154, 140, 152);
 }
 
